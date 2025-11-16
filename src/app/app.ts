@@ -1,12 +1,27 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { ProductsStore } from './store/products.store';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [],
+  providers: [ProductsStore],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-export class App {
-  protected readonly title = signal('supermarket');
+export class App implements OnInit {
+  #store = inject(ProductsStore);
+
+  ngOnInit(): void {
+    this.#store.addProduct({
+      name: 'Orange',
+      defaultPrice: 100,
+    });
+
+    this.#store.updateProduct({
+      name: 'Apple',
+      defaultPrice: 20,
+    });
+
+    this.#store.removeProduct('Apple');
+  }
 }
