@@ -1,0 +1,20 @@
+<h2>Welcome into the shopping area</h2>
+
+<div class="container">
+
+  <div class="product-list">
+    @for (product of products; track product.name) {
+      <div class="product-list-item">
+        <h3>{{ product.name }}</h3>
+        <p>Price: {{ product.defaultPrice | currency: 'EUR' }}</p>
+        <p>Special Offer: {{ product.specialOfferAmount }} for {{ product.specialOfferPrice | currency:'EUR' }}</p>
+
+        <button (click)="addToShoppingCart(product)">Buy</button>
+
+      </div>
+    }
+  </div>
+
+  <app-shopping-cart></app-shopping-cart>
+</div>
+
