@@ -1,19 +1,13 @@
-@for (item of shoppingCartItem().shoppingCartItems; track item.name) {
-  <div class="shopping-cart-item">
-    <h3>{{ item.name }}</h3>
-    <div class="shopping-cart-item-info">
-      <p>Total: {{ item.totalAmount }}</p>
-      <p>Price: {{ item.defaultPrice | currency: 'EUR' }}</p>
-      <p>Special Offer: {{ item.specialOfferAmount }} for {{ item.specialOfferPrice | currency:'EUR' }}</p>
-      <p>Total Item
-        Price: {{ calculateTotalItemPrice(item.totalAmount, item.defaultPrice, item?.specialOfferAmount, item?.specialOfferPrice) | currency:'EUR' }}</p>
+<div class="shopping-cart">
+  <h3>Shopping Cart</h3>
+  @for (item of shoppingCartItem().shoppingCartItems; track item.name) {
+    <div class="shopping-cart-item">
+      <span>{{ item.totalAmount }} x {{ item.name }}</span>
+      <span> {{ calculateTotalItemPrice(item.totalAmount, item.defaultPrice, item?.specialOfferAmount, item?.specialOfferPrice) | currency:'EUR' }}</span>
     </div>
     <button (click)="removeItemFromShoppingCart(item.name)">Remove</button>
 
-    <hr/>
-  </div>
-}
+  }
 
-
-Total Price: {{ totalPrice() | currency:'EUR' }}
-
+  <p class="total-price">Total: {{ totalPrice() | currency:'EUR' }}</p>
+</div>

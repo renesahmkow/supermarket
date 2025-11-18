@@ -4,8 +4,7 @@
 
   <div class="product-list">
     @for (product of products; track product.name) {
-      <div class="product-list-item">
-
+      <div class="product-list-item" [class]="product.name.toLowerCase()">
         <div>
           <h3>{{ product.name }}</h3>
           <p>Price: {{ product.defaultPrice | currency: 'EUR' }}</p>

@@ -39,7 +39,6 @@ export class ShoppingCart {
     const offer = Math.floor(totalAmount / offerSize);
     const remainingItems = totalAmount % offerSize;
 
-    console.log(offer);
     return offer * offerPrice + remainingItems * singlePrice;
   }
 

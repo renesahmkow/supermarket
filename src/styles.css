@@ -1,1 +1,90 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background: ivory;
+  padding: 2.5rem
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  padding: 0.5rem 0.5rem;
+  max-height: 45px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 0 #000;
+  background: white;
+  border: 2px solid #000;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  align-self: flex-end;
+
+  &:hover {
+    background: #efefef;
+  }
+}
+
+
+:root {
+  --apple: #F4A3A3;
+  --apple-text: #5A2A2A;
+
+  --banana: #FAEAA3;
+  --banana-text: #5A5000;
+
+  --orange: #F7C29B;
+  --orange-text: #5A3A18;
+
+  --strawberry: #F7A1B9;
+  --strawberry-text: #5A2A3A;
+
+  --blueberry: #A9B4E6;
+  --blueberry-text: #1F275A;
+
+  --grapes: #C9A7D9;
+  --grapes-text: #4A2A5A;
+
+  --lemon: #FFF4A8;
+  --lemon-text: #5A5400;
+
+  --lime: #CDE9B2;
+  --lime-text: #345A1E;
+
+  --kiwi: #D4E7B5;
+  --kiwi-text: #3A4A1F;
+
+  --peach: #F9C7B5;
+  --peach-text: #5A3A2A;
+
+  --watermelon: #F6B5B5;
+  --watermelon-text: #5A2020;
+
+  --cherry: #E9A3A3;
+  --cherry-text: #5A1E1E;
+
+  --mango: #F9D29A;
+  --mango-text: #5A3F14;
+
+  --pineapple: #FAF0A5;
+  --pineapple-text: #5A5400;
+
+  --plum: #D7B3DD;
+  --plum-text: #4A245A;
+
+  --raspberry: #F5A3C2;
+  --raspberry-text: #5A2641;
+
+  --blackberry: #B7A9D8;
+  --blackberry-text: #31265A;
+
+  --coconut: #EFE8E2;
+  --coconut-text: #5A4A3A;
+
+  --papaya: #F9B89A;
+  --papaya-text: #5A3A26;
+
+  --pear: #D4E8C2;
+  --pear-text: #3C4E23;
+}
