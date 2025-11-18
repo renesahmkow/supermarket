@@ -1,16 +1,6 @@
 import { Injectable } from '@angular/core';
 import { patchState, signalState } from '@ngrx/signals';
-
-interface ProductState {
-  products: Product[];
-}
-
-interface Product {
-  name: string;
-  defaultPrice: number;
-  specialOfferAmount?: number;
-  specialOfferPrice?: number;
-}
+import { Product, ProductState } from '../models/models';
 
 const initialProductsState: ProductState = {
   products: [

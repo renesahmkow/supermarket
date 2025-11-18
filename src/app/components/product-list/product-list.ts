@@ -2,7 +2,8 @@ import { Component, inject } from '@angular/core';
 import { ShoppingCart } from '../shopping-cart/shopping-cart';
 import { ProductsStore } from '../../store/products.store';
 import { CurrencyPipe } from '@angular/common';
-import { ShoppingCartItem, ShoppingCartStore } from '../../store/shopping-cart.store';
+import { ShoppingCartStore } from '../../store/shopping-cart.store';
+import { Product } from '../../models/models';
 
 @Component({
   selector: 'app-product-list',
@@ -16,7 +17,7 @@ export class ProductList {
 
   products = this.#productStore.state().products;
 
-  addToShoppingCart(product: ShoppingCartItem) {
+  addToShoppingCart(product: Product) {
     this.#shoppingCartStore.addItemToShoppingCart(product);
   }
 }

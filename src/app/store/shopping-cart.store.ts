@@ -1,17 +1,6 @@
 import { Injectable } from '@angular/core';
 import { patchState, signalState } from '@ngrx/signals';
-
-interface ShoppingCartState {
-  shoppingCartItems: ShoppingCartItem[];
-}
-
-export interface ShoppingCartItem {
-  name: string;
-  defaultPrice: number;
-  totalAmount?: number;
-  specialOfferAmount?: number;
-  specialOfferPrice?: number;
-}
+import { Product, ShoppingCartState } from '../models/models';
 
 const initialProductsState: ShoppingCartState = {
   shoppingCartItems: [],
@@ -21,7 +10,7 @@ const initialProductsState: ShoppingCartState = {
 export class ShoppingCartStore {
   readonly state = signalState(initialProductsState);
 
-  addItemToShoppingCart(item: ShoppingCartItem): void {
+  addItemToShoppingCart(item: Product): void {
     patchState(this.state, (state) => {
       const itemAlreadyInCart = state.shoppingCartItems.find((p) => p.name === item.name);
 
@@ -30,7 +19,7 @@ export class ShoppingCartStore {
           shoppingCartItems: state.shoppingCartItems.map((product) =>
             product.name === item.name
               ? { ...product, totalAmount: (product.totalAmount || 0) + 1 }
-              : product,
+              : { ...product },
           ),
         };
       }
