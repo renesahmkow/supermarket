@@ -1,10 +1,19 @@
 <div class="shopping-cart">
   <h3>Shopping Cart</h3>
   @for (item of shoppingCartItem().shoppingCartItems; track item.name) {
-    <div class="shopping-cart-item">
-      <span>{{ item.totalAmount }} x {{ item.name }}</span>
-      <span> {{ calculateTotalItemPrice(item.totalAmount, item.defaultPrice, item?.specialOfferAmount, item?.specialOfferPrice) | currency:'EUR' }}</span>
-    </div>
+
+    <details class="shopping-cart-item">
+      <summary>
+        <span>{{ item.totalAmount }} x {{ item.name }}</span>
+        <span> {{ calculateTotalItemPrice(item.totalAmount, item.defaultPrice, item?.specialOfferAmount, item?.specialOfferPrice) | currency:'EUR' }}</span>
+      </summary>
+
+      <ul class="detail-list">
+        <li>Standard price: {{ getAmountOfNormalItems(item.totalAmount, item.specialOfferAmount) }}x</li>
+        <li>Offer price:  {{ getAmountOfOfferItems(item.totalAmount, item.specialOfferAmount) }}x</li>
+      </ul>
+
+    </details>
     <button (click)="removeItemFromShoppingCart(item.name)">Remove</button>
 
   }

@@ -1,4 +1,4 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { ShoppingCartStore } from '../../store/shopping-cart.store';
 import { CurrencyPipe } from '@angular/common';
 
@@ -26,7 +26,23 @@ export class ShoppingCart {
     }, 0);
   });
 
-  calculateTotalItemPrice(
+  public getAmountOfOfferItems(totalAmount: number, offerAmount?: number) {
+    if (!offerAmount) {
+      return totalAmount;
+    }
+
+    return Math.floor(totalAmount / offerAmount);
+  }
+
+  public getAmountOfNormalItems(totalAmount: number, offerAmount?: number) {
+    if (!offerAmount) {
+      return totalAmount;
+    }
+
+    return totalAmount % offerAmount;
+  }
+
+  public calculateTotalItemPrice(
     totalAmount: number,
     singlePrice: number,
     offerSize?: number,

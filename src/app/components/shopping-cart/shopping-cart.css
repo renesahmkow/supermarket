@@ -18,11 +18,39 @@ h3 {
 }
 
 .shopping-cart-item {
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
   margin-bottom: 0.1rem;
   padding: 1rem 0;
   border-top: 2px solid lightgray;
+
+  summary {
+    display: flex;
+    cursor: pointer;
+
+    :last-child {
+      margin-left: auto;
+    }
+
+    &::before {
+      content: "";
+      background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgYmFzZVByb2ZpbGU9InRpbnkiIGhlaWdodD0iMjRweCIgaWQ9IkxheWVyXzEiIHZlcnNpb249IjEuMiIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjRweCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PHBhdGggZD0iTTguNTg2LDUuNTg2Yy0wLjc4MSwwLjc4MS0wLjc4MSwyLjA0NywwLDIuODI4TDEyLjE3MSwxMmwtMy41ODUsMy41ODZjLTAuNzgxLDAuNzgxLTAuNzgxLDIuMDQ3LDAsMi44MjggIEM4Ljk3NiwxOC44MDUsOS40ODgsMTksMTAsMTlzMS4wMjQtMC4xOTUsMS40MTQtMC41ODZMMTcuODI5LDEybC02LjQxNS02LjQxNEMxMC42MzQsNC44MDUsOS4zNjYsNC44MDUsOC41ODYsNS41ODZ6Ii8+PC9zdmc+);
+      background-size: cover;
+      width: 1.25rem;
+      aspect-ratio: 1;
+      transform: rotate(90deg);
+      transition: transform 0.5s ease;
+      transform-origin: 50% 50%;
+    }
+
+    [open] &::before {
+      transform: rotate(270deg);
+    }
+  }
+}
+
+.detail-list {
+  margin-top: 1rem;
+  margin-left: 2rem;
 }
 
 .total-price {
